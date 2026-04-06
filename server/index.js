@@ -15,6 +15,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Routes import & use
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
+
 // Basic Route
 app.get('/', (req, res) => {
   res.send('API is running for Orbital Net...');
