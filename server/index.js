@@ -19,10 +19,19 @@ app.use(express.json());
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/users', userRoutes);
 
+const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
+
+// If no routes match
+app.use(notFound);
+// If error
+app.use(errorHandler);
+
 // Basic Route
 app.get('/', (req, res) => {
   res.send('API is running for Orbital Net...');
 });
+
+
 
 const PORT = process.env.PORT || 5000;
 

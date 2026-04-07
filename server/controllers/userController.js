@@ -65,7 +65,32 @@ const authUser = async (req, res) => {
   }
 };
 
+
+
+
+const getUserProfile = async (req, res) => {
+  try {
+    if (req.user) {
+      res.json({
+        _id: req.user._id,
+        name: req.user.name,
+        email: req.user.email,
+        phone: req.user.phone,
+        address: req.user.address,
+        role: req.user.role,
+      });
+    } else {
+      res.status(404);
+      throw new Error('User not found'); 
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
 module.exports = {
   registerUser,
   authUser,
+  getUserProfile,
 };
