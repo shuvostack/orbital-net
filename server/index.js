@@ -17,10 +17,12 @@ app.use(express.json());
 
 // Routes import & use
 const userRoutes = require('./routes/userRoutes');
-const packageRoutes = require('./routes/packageRoutes'); 
+const packageRoutes = require('./routes/packageRoutes');
+const productRoutes = require('./routes/productRoutes'); 
 
 app.use('/api/users', userRoutes);
 app.use('/api/packages', packageRoutes); 
+app.use('/api/products', productRoutes); 
 
 const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
 
