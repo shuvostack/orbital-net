@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronRight, Zap, ShieldCheck, Activity } from "lucide-react";
 import Features from "@/components/Features";
+import Packages from '@/components/Packages';
 
 export default function Home() {
   return (
@@ -133,8 +134,15 @@ export default function Home() {
       </div>
 
     {/* why choose us section */}
-      <Features></Features>
+      <div>
+        <Features></Features>
+      </div>
 
+    {/* packages section */}
+      <div>
+        <Packages></Packages>
+      </div>
+      
     </div>
   );
 }
