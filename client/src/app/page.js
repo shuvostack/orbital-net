@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, Zap, ShieldCheck, Activity } from "lucide-react";
 import Features from "@/components/Features";
 import Packages from '@/components/Packages';
+import ShopTeaser from '@/components/ShopTeaser';
 
 export default function Home() {
   return (
@@ -142,7 +143,12 @@ export default function Home() {
       <div>
         <Packages></Packages>
       </div>
-      
+
+    {/* shop teaser section */}
+      <div>
+        <ShopTeaser></ShopTeaser>
+      </div>
+
     </div>
   );
 }
