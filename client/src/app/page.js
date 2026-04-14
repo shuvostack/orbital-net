@@ -6,6 +6,8 @@ import { ChevronRight, Zap, ShieldCheck, Activity } from "lucide-react";
 import Features from "@/components/Features";
 import Packages from '@/components/Packages';
 import ShopTeaser from '@/components/ShopTeaser';
+import Partners from "@/components/Partners";
+import PayBill from '@/components/PayBill';
 
 export default function Home() {
   return (
@@ -149,6 +151,16 @@ export default function Home() {
         <ShopTeaser></ShopTeaser>
       </div>
 
+
+    {/* Pay bill section */}
+      <div>
+        <PayBill></PayBill>
+      </div>
+
+    {/* collaboration section */}
+      <div>
+        <Partners></Partners>
+      </div>
     </div>
   );
 }
