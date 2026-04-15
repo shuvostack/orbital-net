@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image'; 
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Menu, X, ShoppingCart, User, CreditCard } from 'lucide-react';
@@ -24,11 +25,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* Logo - Fiber Blaze Gradient */}
+          {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl md:text-2xl font-black bg-gradient-to-r from-orange-400 to-rose-400 bg-clip-text text-transparent tracking-tighter">
-              Orbital Net
-            </span>
+            <Image 
+              src="/logo_1.png" 
+              alt="Orbital Net Logo"
+              width={120} 
+              height={40} 
+              className="object-contain" 
+            />
           </Link>
 
           {/* Desktop Menu */}

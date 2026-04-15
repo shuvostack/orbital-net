@@ -1,5 +1,6 @@
 import SmoothScroll from '@/components/SmoothScroll';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import MouseEffect from '@/components/MouseEffect';
 import './globals.css';
 
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
             {children}
           </main>
         </SmoothScroll>
-
+        <Footer/>
       </body>
     </html>
   );
