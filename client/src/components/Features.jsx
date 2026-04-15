@@ -1,46 +1,71 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Cable, Zap, Gamepad2, Headset } from 'lucide-react';
+import { Home, ShieldCheck, Briefcase, Server, Network, Camera, Database, Globe, Sun } from 'lucide-react';
 
 export default function Features() {
   const features = [
     {
-      icon: <Cable className="w-8 h-8 text-orange-500" />,
-      title: 'Pure FTTH Connection',
-      description: '১০০% অপটিক্যাল ফাইবার সরাসরি আপনার বাসা পর্যন্ত। রোদ-বৃষ্টিতেও ইন্টারনেট থাকবে নিরবচ্ছিন্ন।',
+      icon: <Home className="w-8 h-8 text-orange-500" />,
+      title: 'হোম ব্রডব্যান্ড ইন্টারনেট',
+      description: 'অরবিটাল নেট টাঙ্গাইল জুড়ে সবচেয়ে দ্রুতগতির ব্রডব্যান্ড ইন্টারনেট প্রদান করছে, যা গেমার এবং সাধারণ ব্যবহারকারী উভয়ের জন্যই শতভাগ নির্ভরযোগ্য।',
     },
     {
-      icon: <Zap className="w-8 h-8 text-rose-500" />,
-      title: 'Superfast BDIX & FTP',
-      description: 'বাফারিং ছাড়া YouTube, Facebook এবং মুভি সার্ভার উপভোগ করার জন্য আনলিমিটেড স্পিড।',
+      icon: <ShieldCheck className="w-8 h-8 text-rose-500" />,
+      title: 'নেটওয়ার্ক সিকিউরিটি',
+      description: 'ভিপিএন (VPN), অ্যান্টিভাইরাস এবং সিসিটিভি আইপি সার্ভিল্যান্স সলিউশনের মাধ্যমে আমরা আপনার সর্বোচ্চ এন্ড-টু-এন্ড নিরাপত্তা নিশ্চিত করি।',
     },
     {
-      icon: <Gamepad2 className="w-8 h-8 text-orange-400" />,
-      title: 'Real Public IP',
-      description: 'জিরো ল্যাগ এবং ওপেন NAT টাইপ। ভ্যালোরেন্ট বা পাবজি খেলার জন্য একদম পারফেক্ট রাউটিং।',
+      icon: <Briefcase className="w-8 h-8 text-orange-400" />,
+      title: 'কর্পোরেট/এসএমই ইন্টারনেট',
+      description: 'কর্পোরেট এবং SME গ্রাহকদের নেটওয়ার্ক স্থিতিশীলতা নিশ্চিত করতে ২৪/৭ ডেডিকেটেড সাপোর্ট সহ বিশেষ ইন্টারনেট এবং নেটওয়ার্ক সলিউশন।',
     },
     {
-      icon: <Headset className="w-8 h-8 text-rose-400" />,
-      title: '24/7 Expert Support',
-      description: 'টাঙ্গাইলের সেরা সাপোর্ট টিম। যেকোনো সমস্যায় সরাসরি কল করুন, সমাধান হবে দ্রুত।',
+      icon: <Server className="w-8 h-8 text-rose-400" />,
+      title: 'ডেডিকেটেড সার্ভার হোস্টিং',
+      description: 'আপনার প্রাত্যহিক প্রাতিষ্ঠানিক চাহিদা মেটাতে উন্নত নেটওয়ার্ক রাউটিং এবং কনফিগারেশন সহ একটি ডেডিকেটেড সার্ভার হোস্টিং গ্রহণ করুন।',
+    },
+    {
+      icon: <Network className="w-8 h-8 text-orange-500" />,
+      title: 'নেটওয়ার্ক সলিউশনস',
+      description: 'আমরা ল্যান (LAN) এবং ওয়্যান (WAN) উভয় নেটওয়ার্ক সলিউশন প্রদান করি। আমাদের দক্ষ ইঞ্জিনিয়ারদের সহায়তায় পান সবচেয়ে কার্যকর সমাধান।',
+    },
+    {
+      icon: <Camera className="w-8 h-8 text-rose-500" />,
+      title: 'সিসিটিভি সিস্টেম সলিউশনস',
+      description: 'আবাসিক, বাণিজ্যিক এবং শিল্পপ্রতিষ্ঠানের নিরাপত্তার জন্য অরবিটাল নেট প্রদান করে অত্যাধুনিক সিসিটিভি এবং আইপি সার্ভিল্যান্স সলিউশন।',
+    },
+    {
+      icon: <Database className="w-8 h-8 text-orange-400" />,
+      title: 'ডেটা কানেক্টিভিটি',
+      description: 'সর্বশেষ প্রযুক্তির সাথে আমাদের সিস্টেমকে আপডেট রেখে, আমরা ক্লায়েন্টদের জন্য সবচেয়ে দ্রুত এবং নিরাপদ ডেটা কানেক্টিভিটি নিশ্চিত করি।',
+    },
+    {
+      icon: <Globe className="w-8 h-8 text-rose-400" />,
+      title: 'ডেডিকেটেড ইন্টারনেট',
+      description: '৯৯.৯% আপটাইম নিশ্চিত করতে মাল্টিপল আপস্ট্রিম সাপোর্ট এবং একাধিক ব্যাকআপ লিংক সহ ডেডিকেটেড হাই-স্পিড ইন্টারনেট কানেক্টিভিটি।',
+    },
+    {
+      icon: <Sun className="w-8 h-8 text-orange-500" />,
+      title: 'সোলার সিস্টেম সলিউশনস',
+      description: 'নিরবচ্ছিন্ন ইন্টারনেট কানেক্টিভিটি এবং আবাসিক ও বাণিজ্যিক বিদ্যুতের চাহিদা মেটাতে সম্পূর্ণ পরিবেশবান্ধব সোলার পাওয়ার সলিউশন।',
     },
   ];
 
-  // Framer Motion Variants for Staggered Animation
+  // Framer Motion Variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, 
+        staggerChildren: 0.15, 
       },
     },
   };
 
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
 
   return (
@@ -59,7 +84,7 @@ export default function Features() {
             viewport={{ once: true }}
             className="text-orange-500 font-bold tracking-widest uppercase text-sm mb-3 block"
           >
-            Why Choose Orbital Net
+            আমাদের সার্বিক সেবাসমূহ
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -68,7 +93,7 @@ export default function Features() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-black text-white tracking-tight"
           >
-            Engineered for <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-rose-500">Extreme Performance</span>
+            সর্বোচ্চ পারফরম্যান্সের জন্য <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-rose-500">আমরাই সেরা</span>
           </motion.h2>
         </div>
 
@@ -78,7 +103,7 @@ export default function Features() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {features.map((feature, index) => (
             <motion.div 
