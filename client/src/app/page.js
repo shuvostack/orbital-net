@@ -8,6 +8,7 @@ import Packages from '@/components/Packages';
 import ShopTeaser from '@/components/ShopTeaser';
 import Partners from "@/components/Partners";
 import PayBill from '@/components/PayBill';
+import CoverageTeaser from "@/components/CoverageTeaser";
 
 export default function Home() {
   return (
@@ -160,6 +161,11 @@ export default function Home() {
     {/* collaboration section */}
       <div>
         <Partners></Partners>
+      </div>
+
+    {/* coverage teaser section */}
+      <div>
+        <CoverageTeaser></CoverageTeaser>
       </div>
     </div>
   );
