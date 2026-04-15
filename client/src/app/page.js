@@ -9,6 +9,7 @@ import ShopTeaser from '@/components/ShopTeaser';
 import Partners from "@/components/Partners";
 import PayBill from '@/components/PayBill';
 import CoverageTeaser from "@/components/CoverageTeaser";
+import FAQ from "@/components/FAQ";
 
 export default function Home() {
   return (
@@ -166,6 +167,11 @@ export default function Home() {
     {/* coverage teaser section */}
       <div>
         <CoverageTeaser></CoverageTeaser>
+      </div>
+
+    {/* FAQ section */}
+      <div>
+        <FAQ></FAQ>
       </div>
     </div>
   );
