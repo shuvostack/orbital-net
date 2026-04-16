@@ -97,7 +97,7 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-orange-500 shrink-0" />
                 <a href="tel:+8801700000000" className="text-zinc-400 hover:text-white text-sm font-medium transition-colors">
-                  +880 1700 000000
+                  +880 1717171081
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -118,7 +118,7 @@ export default function Footer() {
           </p>
           <p className="text-zinc-500 text-xs font-medium flex items-center gap-1">
             Developed by 
-            <a href="https://github.com/Mehedi-Hasan-Shuvo" target="_blank" rel="noreferrer" className="text-zinc-300 hover:text-orange-400 font-bold transition-colors ml-1">
+            <a href="https://github.com/shuvostack" target="_blank" rel="noreferrer" className="text-zinc-300 hover:text-orange-400 font-bold transition-colors ml-1">
               Mehedi Hasan Shuvo
             </a>
           </p>
