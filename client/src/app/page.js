@@ -29,16 +29,16 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               {/* Live Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 font-bold text-xs uppercase tracking-widest mt-5 mb-8">
+              {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 font-bold text-xs uppercase tracking-widest mt-5 mb-8">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
                 </span>
                 #1 High-Speed Network in Tangail
-              </div>
+              </div> */}
 
               {/* Main Title */}
-              <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 text-white leading-[1.05]">
+              <h1 className="text-5xl md:text-7xl font-black tracking-tighter mt-6 mb-6 text-white leading-[1.05]">
                 Experience the <br />
                 <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-rose-600 bg-clip-text text-transparent">
                   Blazing Speed

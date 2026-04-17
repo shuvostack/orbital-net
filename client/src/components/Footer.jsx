@@ -91,7 +91,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
                 <span className="text-zinc-400 text-sm leading-relaxed">
-                  মেইন রোড, টাঙ্গাইল সদর,<br />টাঙ্গাইল, বাংলাদেশ।
+                  আশেকপুর, টাঙ্গাইল সদর,<br />টাঙ্গাইল, বাংলাদেশ।
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -103,7 +103,7 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-orange-500 shrink-0" />
                 <a href="mailto:support@orbitalnet.com" className="text-zinc-400 hover:text-white text-sm font-medium transition-colors">
-                  support@orbitalnet.com
+                  info.orbitalnet@gmail.com
                 </a>
               </li>
             </ul>
