@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image'; 
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Menu, X, ShoppingCart, User, CreditCard } from 'lucide-react';
+import { Menu, X, ShoppingCart, User, CreditCard, Zap, ExternalLink } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +19,9 @@ export default function Navbar() {
     { name: 'Coverage', href: '/coverage' },
     { name: 'Contact', href: '/contact' },
   ];
+
+  // self care link
+  const selfCareLink = "https://selfcare.orbitalbd.net/customer/login";
 
   return (
     <nav className="sticky top-0 z-50 w-full backdrop-blur-xl bg-zinc-950/80 border-b border-zinc-800/50 shadow-lg shadow-orange-900/10">
@@ -63,15 +66,29 @@ export default function Navbar() {
             
             <div className="h-6 w-px bg-zinc-800 mx-2"></div>
 
-            {/* Icons & Action */}
-            <div className="flex items-center gap-5">
+            {/* Icons & Action Buttons */}
+            <div className="flex items-center gap-4">
               <Link href="/cart" className={`transition-colors relative ${pathname === '/cart' ? 'text-orange-400' : 'text-zinc-300 hover:text-orange-400'}`}>
                 <ShoppingCart className="w-5 h-5" />
                 <span className="absolute -top-2 -right-2 bg-rose-500 text-[10px] font-bold px-1.5 py-0.5 rounded-full text-white">0</span>
               </Link>
               
-              <Link href="/login" className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-rose-500 text-white px-5 py-2.5 rounded-full hover:scale-105 transition-all font-bold text-sm shadow-lg shadow-orange-500/25">
-                <User className="w-4 h-4" /> Sign In
+              {/* SelfCare Button */}
+              <a 
+                href={selfCareLink}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 border border-zinc-700 hover:border-orange-500 text-zinc-300 hover:text-orange-400 px-4 py-2 rounded-full transition-all font-bold text-sm ml-2"
+              >
+                <User className="w-4 h-4" /> SelfCare
+              </a>
+
+              {/* Get Connection Button */}
+              <Link 
+                href="/get-connection" 
+                className="flex items-center gap-1.5 bg-gradient-to-r from-orange-500 to-rose-500 text-white px-5 py-2.5 rounded-full hover:scale-105 transition-all font-bold text-sm shadow-lg shadow-orange-500/25"
+              >
+                 Get Connection
               </Link>
             </div>
           </div>
@@ -109,13 +126,28 @@ export default function Navbar() {
                 </Link>
               )
             })}
-            <Link 
-              href="/login" 
-              onClick={() => setIsOpen(false)}
-              className="mt-4 flex justify-center items-center gap-2 bg-gradient-to-r from-orange-500 to-rose-500 text-white py-4 rounded-xl font-bold shadow-lg shadow-orange-500/20"
-            >
-              <User className="w-5 h-5" /> Sign In
-            </Link>
+            
+            {/* Mobile Action Buttons */}
+            <div className="mt-6 flex flex-col gap-3">
+              <Link 
+                href="/get-connection" 
+                onClick={() => setIsOpen(false)}
+                className="flex justify-center items-center gap-2 bg-gradient-to-r from-orange-500 to-rose-500 text-white py-4 rounded-xl font-bold shadow-lg shadow-orange-500/20"
+              >
+                 Get Connection
+              </Link>
+              
+              <a 
+                href={selfCareLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="flex justify-center items-center gap-2 bg-zinc-800 border border-zinc-700 text-white py-4 rounded-xl font-bold hover:bg-zinc-700 transition-colors"
+              >
+                <ExternalLink className="w-5 h-5" /> SelfCare Portal
+              </a>
+            </div>
+            
           </div>
         </div>
       )}
