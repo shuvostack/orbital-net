@@ -207,7 +207,6 @@ export default function CoveragePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-white mb-4 flex items-center justify-center gap-3">
-              <Zap className="w-6 h-6 text-orange-500" />
               আমাদের বর্তমান এরিয়াসমূহ
             </h2>
             <p className="text-zinc-500 font-medium">নিচের এলাকাগুলোতে আমাদের ফাইবার অপটিক নেটওয়ার্ক শতভাগ সচল আছে।</p>

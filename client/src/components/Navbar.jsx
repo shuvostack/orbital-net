@@ -14,7 +14,7 @@ export default function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'About us', href: '/about' },
     { name: 'Packages', href: '/packages' },
-    { name: 'Shop', href: '/products' },
+    { name: 'Shop', href: '/shop' },
     { name: 'Pay bill', href: '/pay-bill', icon: <CreditCard className="w-3.5 h-3.5" /> },
     { name: 'Coverage', href: '/coverage' },
     { name: 'Contact', href: '/contact' },
