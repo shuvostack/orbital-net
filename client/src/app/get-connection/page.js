@@ -11,12 +11,12 @@ export default function GetConnectionPage() {
     phone: '',
     area: '',
     address: '',
-    selectedPackage: 'Bronze+ (30 Mbps - 630 Tk)', // Default package
+    selectedPackage: 'Bronze+ (30 Mbps - 630 Tk)', 
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // প্যাকেজের লিস্ট (ড্রপডাউনের জন্য)
+  // package list 
   const packages = [
     'Brass+ (20 Mbps - 525 Tk)',
     'Bronze+ (30 Mbps - 630 Tk)',
@@ -38,9 +38,9 @@ export default function GetConnectionPage() {
     setIsSubmitting(true);
 
     //  WhatsApp Message Logic 
-    const adminWhatsAppNumber = '8801828056403'; 
+    const adminWhatsAppNumber = '8801717171081'; 
 
-    const message = `নতুন কানেকশন রিকোয়েস্ট (Orbital Net) 🚀\n\n*নাম:* ${formData.name}\n*ফোন:* ${formData.phone}\n*এলাকা:* ${formData.area}\n*বিস্তারিত ঠিকানা:* ${formData.address}\n*পছন্দের প্যাকেজ:* ${formData.selectedPackage}\n\nঅনুগ্রহ করে আমার সাথে দ্রুত যোগাযোগ করুন।`;
+    const message = `নতুন কানেকশন রিকোয়েস্ট (Orbital Net) \n\n*নাম:* ${formData.name}\n*ফোন:* ${formData.phone}\n*এলাকা:* ${formData.area}\n*বিস্তারিত ঠিকানা:* ${formData.address}\n*পছন্দের প্যাকেজ:* ${formData.selectedPackage}\n\nঅনুগ্রহ করে আমার সাথে দ্রুত যোগাযোগ করুন।`;
 
     // create whatsApp API link
     const whatsappUrl = `https://wa.me/${adminWhatsAppNumber}?text=${encodeURIComponent(message)}`;

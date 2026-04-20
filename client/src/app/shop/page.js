@@ -3,10 +3,30 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingCart, Search, Router, Video, Sun, ShieldCheck, Battery, Monitor, Lock, Cpu, ChevronRight, ShoppingBag } from 'lucide-react';
+import { ShoppingCart, Router, Video, Sun, Battery, Monitor, Lock, Cpu } from 'lucide-react';
+import { useCartStore } from '@/store/cartStore';
+import Swal from 'sweetalert2';
 
 export default function ShopPage() {
   const [activeCategory, setActiveCategory] = useState('All');
+  
+  const { addToCart } = useCartStore();
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    
+    // SweetAlert Toast Notification
+    Swal.fire({
+      toast: true,
+      position: 'bottom-end',
+      icon: 'success',
+      title: 'কার্টে যোগ করা হয়েছে!',
+      showConfirmButton: false,
+      timer: 1500,
+      background: '#18181b', 
+      color: '#f97316'     
+    });
+  };
 
   // Dummy product data
   const products = [
@@ -40,7 +60,7 @@ export default function ShopPage() {
     <div className="bg-zinc-950 min-h-screen pb-24">
       
       {/* Hero Banner */}
-      <section className="relative pt-32 pb-16 overflow-hidden border-b border-zinc-900">
+      <section className="relative pt-30 pb-16 overflow-hidden border-b border-zinc-900">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-orange-600/10 blur-[150px] rounded-full pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -49,16 +69,12 @@ export default function ShopPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 font-bold text-xs uppercase tracking-widest mb-6">
-              <ShoppingBag className="w-4 h-4 text-orange-500" />
-              Orbital Gear Store
-            </div>
             <h1 className="text-4xl md:text-6xl font-black text-white leading-tight mb-6 tracking-tight">
               স্মার্ট ইন্টারনেট, <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-rose-500">স্মার্ট ডিভাইস</span>
             </h1>
             <p className="text-lg text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed">
-              রাউটার থেকে শুরু করে অত্যাধুনিক সিসি ক্যামেরা এবং সোলার সিস্টেম— আপনার প্রয়োজনীয় সবকিছু পাচ্ছেন অরবিটাল স্টোরে।
+              রাউটার থেকে শুরু করে অত্যাধুনিক সিসি ক্যামেরা এবং সোলার সিস্টেম— আপনার প্রয়োজনীয় সবকিছু পাচ্ছেন অরবিটাল স্টোরে।
             </p>
           </motion.div>
         </div>
@@ -139,10 +155,13 @@ export default function ShopPage() {
                       </span>
                     </div>
                     
-                    {/* Buy Button: Opens mail/contact for now since backend isn't ready */}
-                    <Link href="/contact" className="w-10 h-10 rounded-xl bg-zinc-800 flex items-center justify-center text-zinc-300 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-rose-500 group-hover:text-white transition-all shadow-lg group-hover:shadow-orange-500/25">
+                    {/* Add to Cart Button */}
+                    <button 
+                      onClick={() => handleAddToCart(product)} 
+                      className="w-10 h-10 rounded-xl bg-zinc-800 flex items-center justify-center text-zinc-300 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-rose-500 group-hover:text-white transition-all shadow-lg group-hover:shadow-orange-500/25"
+                    >
                       <ShoppingCart className="w-4 h-4" />
-                    </Link>
+                    </button>
                   </div>
                 </motion.div>
               ))}

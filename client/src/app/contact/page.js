@@ -47,7 +47,7 @@ export default function ContactPage() {
   return (
     <div className="bg-zinc-950 min-h-screen pb-24">
       
-      {/* --- 1. Hero Section --- */}
+      {/* Hero Section */}
       <section className="relative pt-32 pb-16 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-rose-600/10 blur-[150px] rounded-full pointer-events-none" />
         
@@ -57,10 +57,6 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 font-bold text-xs uppercase tracking-widest mb-6">
-              <MessageSquare className="w-4 h-4 text-rose-500" />
-              Support Hub
-            </div> */}
             <h1 className="text-4xl md:text-6xl font-black text-white leading-tight mb-6 tracking-tight">
               যেকোনো প্রয়োজনে <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-rose-500">আমরা আছি ২৪/৭</span>
@@ -72,7 +68,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* --- 2. Quick Contact Cards --- */}
+      {/* Contact Cards */}
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -96,13 +92,13 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* --- 3. Split Layout: Form & Map --- */}
+      {/* Form & Map */}
       <section>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-[3rem] overflow-hidden shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               
-              {/* Left Side: Contact Form */}
+              {/* Contact Form */}
               <div className="p-8 md:p-12 lg:p-16 relative">
                 <h3 className="text-3xl font-black text-white mb-2">মেসেজ পাঠান</h3>
                 <p className="text-zinc-400 mb-8 font-medium">নিচের ফর্মটি পূরণ করুন, আমরা খুব দ্রুত আপনার সাথে যোগাযোগ করবো।</p>
@@ -178,7 +174,7 @@ export default function ContactPage() {
                 </form>
               </div>
 
-              {/* Right Side: Map & Office Hours */}
+              {/* Map & Office Hours */}
               <div className="bg-zinc-950 relative overflow-hidden min-h-[400px] lg:min-h-full flex flex-col">
                 
                 {/* Office Hours Overlay Box */}
@@ -194,7 +190,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Google Maps Embed (Updated with exact coordinates) */}
+                {/* Google Maps Embed */}
                 <div className="w-full h-full flex-grow relative">
                   <iframe 
                     src="https://maps.google.com/maps?q=24.248841,89.933166&t=&z=15&ie=UTF8&iwloc=&output=embed" 

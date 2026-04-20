@@ -121,10 +121,6 @@ export default function ShopTeaser() {
                     onError={(e) => e.target.style.display='none'}
                   />
                   
-                  {/* Placeholder Background */}
-                  {/* <div className="absolute inset-0 m-4 border-2 border-dashed border-zinc-800 rounded-xl flex items-center justify-center flex-col gap-2 z-0">
-                     <Star className="w-6 h-6 text-zinc-800" />
-                  </div> */}
                 </div>
 
                 <div className="space-y-1">

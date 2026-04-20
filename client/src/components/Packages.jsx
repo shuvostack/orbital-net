@@ -28,7 +28,7 @@ export default function Packages() {
   };
 
   const commonFeatures = [
-    '100 Mbps BDIX Speed',
+    'High speed BDIX and CDN connectivity',
     '4K Youtube & FB Stream',
     'Optical Fiber Connection',
     'IPv6 Public IP Only',

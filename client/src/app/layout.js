@@ -2,6 +2,7 @@ import SmoothScroll from '@/components/SmoothScroll';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import MouseEffect from '@/components/MouseEffect';
+import CartDrawer from '@/components/CartDrawer';
 import './globals.css';
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
 
         <SmoothScroll>
           <Navbar />
+          <CartDrawer />
           <main className="flex-grow">
             {children}
           </main>
