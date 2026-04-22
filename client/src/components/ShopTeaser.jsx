@@ -42,11 +42,11 @@ export default function ShopTeaser() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/products" className="inline-flex items-center justify-center gap-2 bg-white text-zinc-950 px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-wider hover:bg-zinc-200 transition-all hover:scale-105">
+                <Link href="/shop" className="inline-flex items-center justify-center gap-2 bg-white text-zinc-950 px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-wider hover:bg-zinc-200 transition-all hover:scale-105">
                   <ShoppingBag className="w-4 h-4" />
                   Shop Hardware
                 </Link>
-                <Link href="/products" className="inline-flex items-center justify-center gap-2 text-zinc-300 px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider hover:text-white transition-all group">
+                <Link href="/shop" className="inline-flex items-center justify-center gap-2 text-zinc-300 px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider hover:text-white transition-all group">
                   View All Specs
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>

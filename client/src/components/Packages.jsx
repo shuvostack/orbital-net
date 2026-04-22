@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Zap, Crown, Flame } from 'lucide-react';
+import Link from 'next/link'; 
 
 export default function Packages() {
   const [activeTab, setActiveTab] = useState('Premium');
@@ -113,13 +114,16 @@ export default function Packages() {
                   ))}
                 </ul>
 
-                <button className={`w-full py-4 rounded-2xl font-black text-sm uppercase tracking-wider transition-all duration-300 ${
+                
+                <Link 
+                  href={`/get-connection?package=${encodeURIComponent(pkg.name)}`}
+                  className={`w-full flex items-center justify-center py-4 rounded-2xl font-black text-sm uppercase tracking-wider transition-all duration-300 ${
                   pkg.popular 
                   ? 'bg-gradient-to-r from-orange-500 to-rose-500 text-white shadow-orange-500/20 hover:shadow-orange-500/40 hover:-translate-y-1' 
                   : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white'
                 }`}>
                   Connect Now
-                </button>
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>

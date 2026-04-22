@@ -60,7 +60,7 @@ export default function Home() {
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
-                  href="/products"
+                  href="/shop"
                   className="flex items-center justify-center gap-2 px-10 py-4 rounded-2xl font-bold text-lg text-zinc-300 border border-zinc-800 hover:bg-zinc-900 hover:text-white transition-all"
                 >
                   Hardware Shop
