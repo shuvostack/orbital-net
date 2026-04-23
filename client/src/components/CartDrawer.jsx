@@ -15,11 +15,8 @@ export default function CartDrawer() {
     setIsMounted(true);
   }, []);
 
-  // checkout logic
   const handleCheckout = () => {
     if (cart.length === 0) return;
-    
-    // close cart and redirect to checkout page
     closeCart();
     router.push('/checkout');
   };
@@ -63,21 +60,46 @@ export default function CartDrawer() {
                 </div>
               ) : (
                 cart.map((item) => (
-                  <div key={item.id} className="flex gap-4 bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800/50">
-                    <div className="flex-1 flex flex-col justify-between">
-                      <h3 className="text-white font-bold text-sm leading-snug line-clamp-2">{item.name}</h3>
-                      <div className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-rose-500 font-black text-sm mt-1">৳{(item.rawPrice * item.quantity).toLocaleString('en-IN')}</div>
+                  <div key={item.id} className="flex gap-4 bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800/50 group">
+                    
+                    {/* Product Image */}
+                    <div className="w-20 h-20 bg-zinc-950 rounded-xl border border-zinc-800/50 flex items-center justify-center overflow-hidden shrink-0">
+                      {item.image ? (
+                        <img src={item.image} alt={item.name} className="w-full h-full object-contain p-2 mix-blend-screen" />
+                      ) : (
+                        <ShoppingBag className="w-6 h-6 text-zinc-700" />
+                      )}
+                    </div>
+
+                    <div className="flex-1 flex flex-col justify-between py-1">
+                      {/* Product Name */}
+                      <h3 className="text-white font-bold text-sm leading-snug line-clamp-2">
+                        {item.name}
+                      </h3>
                       
-                      <div className="flex items-center justify-between mt-3">
+                      {/* Price */}
+                      <div className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-rose-500 font-black text-sm mt-1">
+                        ৳{(Number(item.rawPrice) * item.quantity).toLocaleString('en-IN')}
+                      </div>
+                      
+                      {/* Controls Row */}
+                      <div className="flex items-center justify-between mt-2">
+                        {/* Quantity Controls */}
                         <div className="flex items-center gap-3 bg-zinc-950 rounded-lg border border-zinc-800 px-2 py-1">
                           <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="text-zinc-400 hover:text-white transition-colors"><Minus className="w-3.5 h-3.5" /></button>
                           <span className="text-white text-xs font-bold w-4 text-center">{item.quantity}</span>
                           <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="text-zinc-400 hover:text-white transition-colors"><Plus className="w-3.5 h-3.5" /></button>
                         </div>
-                        <button onClick={() => removeFromCart(item.id)} className="text-zinc-500 hover:text-rose-500 transition-colors p-1">
+                       
+                        <button 
+                          onClick={() => removeFromCart(item.id)} 
+                          className="p-1 text-zinc-600 hover:text-rose-500 transition-colors"
+                          title="রিমুভ করুন"
+                        >
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
+                      
                     </div>
                   </div>
                 ))
