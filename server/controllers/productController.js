@@ -1,6 +1,6 @@
 const Product = require('../models/productModel');
 
-// public
+// get all product
 const getProducts = async (req, res, next) => {
   try {
     const products = await Product.find({ isActive: true });
@@ -10,8 +10,23 @@ const getProducts = async (req, res, next) => {
   }
 };
 
+// get single product
+const getProductById = async (req, res, next) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    
+    if (product && product.isActive) {
+      res.json(product);
+    } else {
+      res.status(404);
+      throw new Error('Product not found');
+    }
+  } catch (error) {
+    next(error);
+  }
+};
 
-// Admin
+// for admin panel
 const createProduct = async (req, res, next) => {
   try {
     const { name, description, price, category, countInStock, imageUrl } = req.body;
@@ -33,4 +48,5 @@ const createProduct = async (req, res, next) => {
   }
 };
 
-module.exports = { getProducts, createProduct };
+
+module.exports = { getProducts, getProductById, createProduct };

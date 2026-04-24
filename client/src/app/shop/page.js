@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, Search, PackageOpen, AlertCircle, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -163,13 +164,15 @@ export default function ShopPage() {
                       transition={{ duration: 0.3 }}
                       className="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-5 hover:bg-zinc-800/80 transition-all duration-300 group flex flex-col h-full relative"
                     >
+                      {/* Out of Stock Badge */}
                       {product.countInStock === 0 && (
                         <div className="absolute top-3 left-3 z-20 bg-zinc-950/80 backdrop-blur-sm border border-rose-500/50 text-rose-400 text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg">
                           Stock Out
                         </div>
                       )}
 
-                      <div className="w-full h-48 bg-white rounded-2xl mb-5 flex items-center justify-center relative overflow-hidden group-hover:border-orange-500/30 transition-colors p-4">
+                      
+                      <Link href={`/shop/${product._id}`} className="w-full h-48 bg-white rounded-2xl mb-5 flex items-center justify-center relative overflow-hidden group-hover:border-orange-500/30 transition-colors p-4 block">
                         <motion.img 
                           whileHover={{ scale: 1.1 }}
                           transition={{ type: 'spring', stiffness: 300 }}
@@ -177,15 +180,20 @@ export default function ShopPage() {
                           alt={product.name}
                           className={`w-full h-full object-contain relative z-10 ${product.countInStock === 0 ? 'grayscale opacity-50' : ''}`}
                         />
-                      </div>
+                      </Link>
 
                       <div className="flex flex-col flex-grow">
                         <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-2">
                           {product.category}
                         </div>
-                        <h3 className="text-lg font-bold text-white mb-2 line-clamp-2">
-                          {product.name}
-                        </h3>
+                        
+                        
+                        <Link href={`/shop/${product._id}`} className="hover:text-orange-400 transition-colors">
+                          <h3 className="text-lg font-bold text-white mb-2 line-clamp-2">
+                            {product.name}
+                          </h3>
+                        </Link>
+                        
                         <p className="text-zinc-400 text-sm mb-4 line-clamp-2" title={product.description}>
                           {product.description}
                         </p>
@@ -199,6 +207,7 @@ export default function ShopPage() {
                           </span>
                         </div>
                         
+                        {/* Add to Cart Button */}
                         <button 
                           onClick={() => handleAddToCart(product)} 
                           disabled={product.countInStock === 0}
