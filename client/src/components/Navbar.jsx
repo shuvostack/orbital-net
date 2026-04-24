@@ -20,10 +20,11 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'About us', href: '/about' },
+    { name: 'About', href: '/about' },
     { name: 'Packages', href: '/packages' },
     { name: 'Shop', href: '/shop' },
-    { name: 'Pay bill', href: '/pay-bill', icon: <CreditCard className="w-3.5 h-3.5" /> },
+    { name: 'Pay bill', href: '/pay-bill',  },
+    { name: 'Media Server', href: '/media' },
     { name: 'Coverage', href: '/coverage' },
     { name: 'Contact', href: '/contact' },
   ];
