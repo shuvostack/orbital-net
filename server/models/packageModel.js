@@ -5,33 +5,32 @@ const packageSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, 'Package name is required'],
-      trim: true, 
+      trim: true,
     },
     speed: {
-      type: Number,
-      required: [true, 'Speed amount is required'],
-    },
-    speedUnit: {
-      type: String,
-      default: 'Mbps',
+      type: String, 
+      required: [true, 'Speed is required'],
     },
     price: {
       type: Number,
       required: [true, 'Package price is required'],
     },
-    category: {
-      type: String,
-      enum: ['Home', 'Corporate', 'Dedicated'],
-      default: 'Home',
+    type: {
+      type: String, 
+      default: 'Broadband',
+    },
+    popular: {
+      type: Boolean, 
+      default: false,
     },
     features: [
       {
-        type: String, 
+        type: String,
       },
     ],
     isActive: {
       type: Boolean,
-      default: true, 
+      default: true,
     },
   },
   {

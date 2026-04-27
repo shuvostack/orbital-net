@@ -68,7 +68,7 @@ export default function Packages() {
 
         {/* Dynamic Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             {packageData[activeTab].map((pkg, index) => (
               <motion.div
                 key={`${activeTab}-${pkg.name}`}

@@ -176,7 +176,7 @@ export default function ShopPage() {
                         <motion.img 
                           whileHover={{ scale: 1.1 }}
                           transition={{ type: 'spring', stiffness: 300 }}
-                          src={product.imageUrl} 
+                          src={product.imageUrl || "https://i.ibb.co/sK08zKj/no-image-placeholder.png"} 
                           alt={product.name}
                           className={`w-full h-full object-contain relative z-10 ${product.countInStock === 0 ? 'grayscale opacity-50' : ''}`}
                         />

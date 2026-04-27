@@ -113,7 +113,7 @@ export default function CoveragePage() {
             </form>
 
             {/* Dynamic Search Results */}
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
               {searchResult === 'found' && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}

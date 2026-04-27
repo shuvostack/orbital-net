@@ -2,70 +2,29 @@ const User = require('../models/userModel');
 const generateToken = require('../utils/generateToken');
 
 
-const registerUser = async (req, res) => {
-  try {
-    const { name, email, password, phone, address } = req.body;
-
-    // Check existing email
-    const userExists = await User.findOne({ email });
-
-    if (userExists) {
-      return res.status(400).json({ message: 'Ei email diye already ekta account ache' });
-    }
-
-    // Create new user to database
-    const user = await User.create({
-      name,
-      email,
-      password, 
-      phone,
-      address,
-    });
-
-    if (user) {
-      res.status(201).json({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        token: generateToken(user._id),
-      });
-    } else {
-      res.status(400).json({ message: 'Invalid user data' });
-    }
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-
-
-
 const authUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Find email from database
     const user = await User.findOne({ email });
 
-    // If user exist and match password
+    
     if (user && (await user.matchPassword(password))) {
       res.json({
         _id: user._id,
         name: user.name,
         email: user.email,
         role: user.role,
+        isAdmin: user.role === 'admin',
         token: generateToken(user._id),
       });
     } else {
-      res.status(401).json({ message: 'Email ba password vul diyecho' });
+      res.status(401).json({ message: 'ইমেইল বা পাসওয়ার্ড ভুল হয়েছে।' });
     }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
-
-
 
 
 const getUserProfile = async (req, res) => {
@@ -75,13 +34,10 @@ const getUserProfile = async (req, res) => {
         _id: req.user._id,
         name: req.user.name,
         email: req.user.email,
-        phone: req.user.phone,
-        address: req.user.address,
-        role: req.user.role,
+        isAdmin: req.user.isAdmin,
       });
     } else {
-      res.status(404);
-      throw new Error('User not found'); 
+      res.status(404).json({ message: 'ইউজার খুঁজে পাওয়া যায়নি' });
     }
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -89,8 +45,36 @@ const getUserProfile = async (req, res) => {
 };
 
 
+const seedAdmin = async (req, res) => {
+  try {
+    const adminExists = await User.findOne({ email: 'admin@orbital.com' });
+
+    if (adminExists) {
+      return res.status(400).json({ message: 'অ্যাডমিন আগেই তৈরি করা আছে!' });
+    }
+
+    const adminUser = new User({
+      name: 'Super Admin',
+      email: 'admin@orbital.com',
+      password: 'password123', 
+      role: 'admin',
+    });
+
+    await adminUser.save();
+    
+    res.status(201).json({ 
+      message: 'ম্যাজিক! অ্যাডমিন সফলভাবে তৈরি হয়েছে।', 
+      email: 'admin@orbital.com', 
+      password: 'password123' 
+    });
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
-  registerUser,
   authUser,
   getUserProfile,
+  seedAdmin,
 };

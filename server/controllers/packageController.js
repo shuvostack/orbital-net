@@ -1,28 +1,26 @@
 const Package = require('../models/packageModel');
 
-
+// get all package
 const getPackages = async (req, res, next) => {
   try {
-    // Receive active package from database
-    const packages = await Package.find({ isActive: true });
+    const packages = await Package.find({});
     res.json(packages);
   } catch (error) {
     next(error);
   }
 };
 
-
-
+// create new package
 const createPackage = async (req, res, next) => {
   try {
-    const { name, speed, speedUnit, price, category, features } = req.body;
+    const { name, speed, price, type, popular, features } = req.body;
 
     const newPackage = new Package({
       name,
       speed,
-      speedUnit,
       price,
-      category,
+      type,
+      popular,
       features,
     });
 
@@ -34,4 +32,34 @@ const createPackage = async (req, res, next) => {
   }
 };
 
-module.exports = { getPackages, createPackage };
+// update package
+const updatePackage = async (req, res, next) => {
+  try {
+    const updatedPackage = await Package.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (updatedPackage) {
+      res.json(updatedPackage);
+    } else {
+      res.status(404);
+      throw new Error('প্যাকেজ খুঁজে পাওয়া যায়নি');
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+// delete package
+const deletePackage = async (req, res, next) => {
+  try {
+    const deletedPackage = await Package.findByIdAndDelete(req.params.id);
+    if (deletedPackage) {
+      res.json({ message: 'প্যাকেজ ডিলিট করা হয়েছে' });
+    } else {
+      res.status(404);
+      throw new Error('প্যাকেজ খুঁজে পাওয়া যায়নি');
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getPackages, createPackage, updatePackage, deletePackage };

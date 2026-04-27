@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { registerUser, authUser, getUserProfile } = require('../controllers/userController');
+const { authUser, getUserProfile, seedAdmin } = require('../controllers/userController');
 const { protect } = require('../middlewares/authMiddleware');
 
-// Public routes 
-router.post('/', registerUser);
+// admin routes 
+router.get('/seed', seedAdmin);
 router.post('/login', authUser);
 
 // Protected Route 

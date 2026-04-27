@@ -20,11 +20,11 @@ const userSchema = new mongoose.Schema(
     },
     phone: {
       type: String,
-      required: [true, 'Phone number is required'],
+      required: false, 
     },
     address: {
       type: String,
-      required: [true, 'Address is required'],
+      required: false, 
     },
     role: {
       type: String,
