@@ -21,12 +21,14 @@ const packageRoutes = require('./routes/packageRoutes');
 const productRoutes = require('./routes/productRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const contactRoutes = require('./routes/contactRoutes');
+const settingRoutes = require('./routes/settingRoutes.js')
 
 app.use('/api/users', userRoutes);
 app.use('/api/packages', packageRoutes); 
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/settings', settingRoutes);
 
 const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
 

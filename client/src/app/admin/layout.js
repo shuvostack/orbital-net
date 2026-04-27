@@ -39,7 +39,7 @@ export default function AdminLayout({ children }) {
     { name: 'Shop Products', href: '/admin/products', icon: <Box className="w-5 h-5" /> },
     { name: 'ISP Packages', href: '/admin/packages', icon: <PackageOpen className="w-5 h-5" /> },
     { name: 'Order Management', href: '/admin/orders', icon: <ShoppingCart className="w-5 h-5" /> },
-    { name: 'Customers', href: '/admin/customers', icon: <Users className="w-5 h-5" /> },
+    // { name: 'Customers', href: '/admin/customers', icon: <Users className="w-5 h-5" /> },
     { name: 'Settings', href: '/admin/settings', icon: <Settings className="w-5 h-5" /> },
   ];
 
