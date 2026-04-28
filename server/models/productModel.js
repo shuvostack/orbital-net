@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema(
     category: {
       type: String,
       required: [true, 'Product category is required'],
-      enum: ['Router', 'ONU', 'Cable', 'Accessories', 'Others'],
+      enum: ['Router', 'ONU', 'Cable', 'Networking', 'Security', 'Solar', 'Accessories', 'Others'],
     },
     countInStock: {
       type: Number,

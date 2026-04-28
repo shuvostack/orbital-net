@@ -41,7 +41,6 @@ export default function AdminProductsPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // ImgBB 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -51,12 +50,11 @@ export default function AdminProductsPage() {
 
     try {
       setUploadingImage(true);
-      // ImgBB API 
       const { data } = await axios.post(`https://api.imgbb.com/1/upload?key=40c78111c3ae7df9ae88ee7a36a788d3`, imageData);
       
       setFormData({ ...formData, imageUrl: data.data.display_url });
       
-      Swal.fire({ toast: true, position: 'top-end', icon: 'success', title: 'ইমেজ আপলোড হয়েছে!', showConfirmButton: false, timer: 1500, background: '#18181b', color: '#fff' });
+      Swal.fire({ toast: true, position: 'top-end', icon: 'success', title: 'ইমেজ আপলোড হয়েছে!', showConfirmButton: false, timer: 1500, background: '#18181b', color: '#fff' });
     } catch (error) {
       Swal.fire({ icon: 'error', title: 'ইমেজ আপলোড ফেইল করেছে!', background: '#18181b', color: '#fff' });
     } finally {
@@ -185,24 +183,43 @@ export default function AdminProductsPage() {
         )}
       </div>
 
-      {/* Add / Edit Product Modal */}
+      {/* 💡 BULLETPROOF CSS MODAL (Fixed Position Approach) */}
       <AnimatePresence>
         {isModalOpen && (
-          <div key="product-modal-backdrop" className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsModalOpen(false)} className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }} 
+              onClick={() => setIsModalOpen(false)} 
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm" 
+            />
             
-    
-            <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }} className="bg-zinc-950 border border-zinc-800 rounded-3xl w-full max-w-2xl relative z-10 overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+            {/* Modal Content - Force Max Height on the Container */}
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0 }} 
+              animate={{ scale: 1, opacity: 1 }} 
+              exit={{ scale: 0.95, opacity: 0 }} 
+              className="bg-zinc-950 border border-zinc-800 rounded-3xl w-full max-w-2xl relative z-10 shadow-2xl"
+              style={{ maxHeight: '90vh', display: 'flex', flexDirection: 'column' }} // Inline CSS for strict enforcement
+            >
               
+              {/* Header */}
               <div className="flex justify-between items-center p-6 border-b border-zinc-800 shrink-0">
                 <h2 className="text-xl font-bold text-white">{editingId ? 'প্রোডাক্ট এডিট করুন' : 'নতুন প্রোডাক্ট যোগ করুন'}</h2>
-                <button onClick={() => setIsModalOpen(false)} className="text-zinc-500 hover:text-white"><X className="w-6 h-6" /></button>
+                <button type="button" onClick={() => setIsModalOpen(false)} className="text-zinc-500 hover:text-white transition-colors">
+                  <X className="w-6 h-6" />
+                </button>
               </div>
 
-             
-              <form onSubmit={handleSubmit} className="p-6 space-y-4 overflow-y-auto flex-1 custom-scrollbar">
+              {/* Body (Form Elements Only) - This must scroll */}
+              <div 
+                className="p-6 space-y-6 custom-scrollbar"
+                style={{ overflowY: 'auto', flexGrow: 1 }} // Inline CSS to guarantee scrolling
+              >
                 
-                {/* upload direct image */}
+                {/* Image Upload */}
                 <div className="flex flex-col items-center justify-center p-6 border-2 border-dashed border-zinc-800 rounded-2xl bg-zinc-900/50 hover:border-orange-500/50 transition-colors relative group">
                   {formData.imageUrl ? (
                     <div className="relative w-32 h-32 rounded-xl overflow-hidden border border-zinc-700">
@@ -224,6 +241,7 @@ export default function AdminProductsPage() {
                   )}
                 </div>
 
+                {/* Grid Inputs */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-zinc-400 text-xs font-bold uppercase mb-2">প্রোডাক্টের নাম</label>
@@ -247,18 +265,23 @@ export default function AdminProductsPage() {
                   </div>
                 </div>
 
+                {/* Description */}
                 <div>
                   <label className="block text-zinc-400 text-xs font-bold uppercase mb-2">ডেসক্রিপশন</label>
                   <textarea name="description" value={formData.description} onChange={handleChange} required rows="3" className="w-full bg-zinc-900 border border-zinc-800 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-orange-500"></textarea>
                 </div>
+              </div>
 
-                <div className="pt-4 flex justify-end gap-3 pb-2">
+              {/* Footer - Fixed */}
+              <div className="p-6 border-t border-zinc-800 shrink-0 bg-zinc-950 rounded-b-3xl">
+                <div className="flex justify-end gap-3">
                   <button type="button" onClick={() => setIsModalOpen(false)} className="px-6 py-3 rounded-xl font-bold text-zinc-400 hover:bg-zinc-900 transition-colors">বাতিল</button>
-                  <button type="submit" disabled={uploadingImage} className="px-6 py-3 rounded-xl font-bold bg-orange-500 text-white hover:bg-orange-600 transition-colors disabled:opacity-50">
+                  <button type="button" onClick={handleSubmit} disabled={uploadingImage} className="px-6 py-3 rounded-xl font-bold bg-orange-500 text-white hover:bg-orange-600 transition-colors disabled:opacity-50">
                     {editingId ? 'আপডেট করুন' : 'অ্যাড করুন'}
                   </button>
                 </div>
-              </form>
+              </div>
+
             </motion.div>
           </div>
         )}
