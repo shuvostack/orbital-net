@@ -33,7 +33,7 @@ export default function Footer() {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-orange-600/5 blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-12">
           <div className="lg:col-span-4">
             <Link href="/" className="inline-block mb-6 relative">
               <Image
@@ -169,19 +169,19 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               {[
-                "Help Center / FAQ",
-                "Contact Us",
-                "Privacy Policy",
-                "Terms of Service",
-                "Refund Policy",
+                { name: "About Us", link: "/about" },
+                { name: "Contact Us", link: "/contact" },
+                { name: "Privacy Policy", link: "/privacy" },
+                { name: "Terms and Conditions", link: "/terms" },
+                { name: "Refund Policy", link: "/refund" },
               ].map((item, index) => (
                 <li key={index}>
                   <Link
-                    href="#"
+                    href={item.link}
                     className="text-zinc-400 hover:text-rose-400 text-sm font-medium transition-colors flex items-center gap-2 group"
                   >
                     <ChevronRight className="w-3 h-3 text-zinc-700 group-hover:text-rose-400 transition-colors" />
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -235,13 +235,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Single Image Payment Strip */}
-        <div className="pt-8 pb-4 flex flex-col xl:flex-row items-center justify-center gap-4 xl:gap-6 border-t border-zinc-800/80">
-          <div className="flex items-center justify-center flex-1 w-full max-w-[1000px]">
+        {/* SSLCOMMERZ Banner */}
+        <div className="pt-8 pb-4 border-t border-zinc-800/80">
+          <div className="w-full flex items-center justify-center">
             <img
               src="/ssl-commerze-2.jpg"
               alt="Payment Methods"
-              className="w-full h-auto max-h-[40px] object-contain"
+              className="w-full h-auto object-contain opacity-90"
             />
           </div>
         </div>
