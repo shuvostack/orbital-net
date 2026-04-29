@@ -17,7 +17,7 @@ const sendMessage = async (req, res) => {
     const mailOptions = {
       from: `"${name} (via Orbital Net)" <${process.env.EMAIL_USER}>`, 
       
-      to: 'ahamashakil273@gmail.com', 
+      to: process.env.EMAIL_USER, 
       replyTo: email, 
       
       subject: `New Contact Request: ${subject}`,

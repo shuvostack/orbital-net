@@ -10,7 +10,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    email: "", // নতুন অ্যাড করা হয়েছে
+    email: "", 
     service: "নতুন কানেকশন নিতে চাই",
     message: "",
   });
@@ -26,15 +26,14 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      // ব্যাকএন্ডের জন্য ডেটা সাজানো
       const payload = {
         name: formData.name,
-        email: formData.email, // কাস্টমারের ইমেইল (রিপ্লাই দেওয়ার জন্য)
+        email: formData.email, 
         subject: `Service Request: ${formData.service}`,
         message: `Phone Number: ${formData.phone}\n\nMessage Details:\n${formData.message}`,
       };
 
-      // ব্যাকএন্ড API তে রিকোয়েস্ট পাঠানো
+      // send request to backend api
       const res = await axios.post(
         "https://orbital-backend-9y6q.onrender.com/api/contact",
         payload,
@@ -49,7 +48,7 @@ export default function ContactPage() {
           color: "#fff",
           confirmButtonColor: "#f97316",
         });
-        // ফর্ম রিসেট করা
+        // reset form
         setFormData({
           name: "",
           phone: "",
