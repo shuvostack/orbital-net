@@ -35,7 +35,7 @@ export default function ContactPage() {
 
       // send request to backend api
       const res = await axios.post(
-        "https://orbital-backend-9y6q.onrender.com/api/contact",
+        "/api/contact",
         payload,
       );
 
