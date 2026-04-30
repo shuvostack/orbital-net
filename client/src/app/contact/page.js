@@ -35,7 +35,7 @@ export default function ContactPage() {
 
       // send request to backend api
       const res = await axios.post(
-        "/api/contact",
+        "https://www.orbitalbd.net/api/contact",
         payload,
       );
 
