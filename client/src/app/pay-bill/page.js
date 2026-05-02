@@ -1,11 +1,15 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CreditCard, ExternalLink, ShieldCheck, Zap, PhoneCall, ArrowRight, Lock, Receipt, Smartphone, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 
 export default function PayBillPage() {
   const selfCareLink = "https://selfcare.orbitalbd.net/customer/login";
+  
+  // for checkbox state management
+  const [isAgreed, setIsAgreed] = useState(false);
 
   const features = [
     {
@@ -71,7 +75,7 @@ export default function PayBillPage() {
               <div className="flex justify-between items-start mb-8">
                 
                 {/* 3D Spinning Taka Coin */}
-                <div className="w-16 h-16 bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700 rounded-2xl flex items-center justify-center shadow-inner [perspective:1000px]">
+                {/* <div className="w-16 h-16 bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700 rounded-2xl flex items-center justify-center shadow-inner [perspective:1000px]">
                   <motion.div
                     animate={{ rotateY: [0, 360] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
@@ -85,25 +89,56 @@ export default function PayBillPage() {
                       ৳
                     </span>
                   </motion.div>
-                </div>
+                </div> */}
               </div>
               
               <h3 className="text-2xl font-black text-white mb-2">SelfCare Portal</h3>
-              <p className="text-zinc-400 text-sm mb-8 leading-relaxed">
+              <p className="text-zinc-400 text-sm mb-6 leading-relaxed">
                 আপনার ড্যাশবোর্ড অ্যাক্সেস করতে এবং বিল পেমেন্ট করতে নিচের বাটনে ক্লিক করুন।
               </p>
 
+              {/* Compliance Checkbox Section */}
+              <div className="mb-4 flex items-start gap-3 bg-zinc-950/50 p-4 rounded-xl border border-zinc-800">
+                <div className="pt-0.5">
+                  <input
+                    type="checkbox"
+                    id="compliance-agree"
+                    checked={isAgreed}
+                    onChange={(e) => setIsAgreed(e.target.checked)}
+                    className="w-4 h-4 mt-0.5 rounded border-zinc-700 bg-zinc-900 text-orange-500 focus:ring-orange-500 focus:ring-offset-zinc-900 cursor-pointer"
+                  />
+                </div>
+                <label htmlFor="compliance-agree" className="text-xs text-zinc-400 leading-relaxed cursor-pointer select-none">
+                  I agree to the{' '}
+                  <Link href="/terms" className="text-orange-400 hover:text-orange-300 hover:underline">Terms & Conditions</Link>,{' '}
+                  <Link href="/refund" className="text-orange-400 hover:text-orange-300 hover:underline">Refund Policy</Link>, and{' '}
+                  <Link href="/privacy" className="text-orange-400 hover:text-orange-300 hover:underline">Privacy Policy</Link>.
+                </label>
+              </div>
+
+              {/* Button with Disabled State */}
               <a 
-                href={selfCareLink} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="group w-full flex items-center justify-between bg-gradient-to-r from-orange-500 to-rose-500 text-white px-6 py-4 rounded-xl font-black text-sm uppercase tracking-wider hover:scale-[1.02] active:scale-95 transition-all shadow-[0_10px_20px_rgba(249,115,22,0.25)]"
+                href={isAgreed ? selfCareLink : "#"} 
+                target={isAgreed ? "_blank" : "_self"} 
+                rel={isAgreed ? "noopener noreferrer" : ""} 
+                onClick={(e) => !isAgreed && e.preventDefault()}
+                className={`group w-full flex items-center justify-between px-6 py-4 rounded-xl font-black text-sm uppercase tracking-wider transition-all shadow-[0_10px_20px_rgba(249,115,22,0.25)] ${
+                  isAgreed 
+                  ? "bg-gradient-to-r from-orange-500 to-rose-500 text-white hover:scale-[1.02] active:scale-95 cursor-pointer" 
+                  : "bg-zinc-800 text-zinc-500 cursor-not-allowed"
+                }`}
               >
                 <span>পোর্টালে প্রবেশ করুন</span>
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${isAgreed ? "bg-white/20 group-hover:bg-white/30" : "bg-zinc-700"}`}>
                   <ExternalLink className="w-4 h-4" />
                 </div>
               </a>
+              
+              {!isAgreed && (
+                <p className="text-[10px] text-rose-500 mt-5 text-center ">
+                  পোর্টালে প্রবেশ করতে উপরের বক্সে টিক দিন।
+                </p>
+              )}
 
               <div className="mt-8 pt-6 border-t border-zinc-800">
                 <p className="text-center text-xs text-zinc-500 font-medium mb-4 uppercase tracking-widest">Supported Methods</p>

@@ -3,14 +3,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Target, Zap, ShieldCheck, Users, Activity, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Target, Zap, ShieldCheck, Users, Activity, ChevronRight, CheckCircle2, FileText, MapPin, Building2, UserCircle } from 'lucide-react';
 
 export default function AboutPage() {
   const stats = [
     { value: '৫+', label: 'বছরের অভিজ্ঞতা' },
     { value: '১০k+', label: 'সন্তুষ্ট গ্রাহক' },
     { value: '৩০০+', label: 'কি.মি. ফাইবার কভারেজ' },
-    { value: '৯৯.৯%', label: 'নেটওয়ার্ক আপটাইম' },
+    { value: '৯৯.৯%', label: 'নেটওয়ার্ক আপটাইম' },
   ];
 
   const values = [
@@ -22,12 +22,12 @@ export default function AboutPage() {
     {
       icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
       title: 'সর্বোচ্চ নিরাপত্তা',
-      desc: 'ব্যাংক-গ্রেড এনক্রিপশন এবং সিকিউর রাউটিংয়ের মাধ্যমে আপনার ডেটা থাকে সম্পূর্ণ সুরক্ষিত।'
+      desc: 'ব্যাংক-গ্রেড এনক্রিপশন এবং সিকিউর রাউটিংয়ের মাধ্যমে আপনার ডেটা থাকে সম্পূর্ণ সুরক্ষিত।'
     },
     {
       icon: <Users className="w-6 h-6 text-rose-500" />,
       title: 'গ্রাহক অগ্রাধিকার',
-      desc: '২৪/৭ এক্সপার্ট সাপোর্ট টিম সবসময় প্রস্তুত আপনার যেকোনো সমস্যার দ্রুত সমাধান দিতে।'
+      desc: '২৪/৭ এক্সপার্ট সাপোর্ট টিম সবসময় প্রস্তুত আপনার যেকোনো সমস্যার দ্রুত সমাধান দিতে।'
     }
   ];
 
@@ -49,7 +49,7 @@ export default function AboutPage() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-rose-500">কানেক্টিভিটির রূপকার</span>
             </h1>
             <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed">
-              অরবিটাল নেট শুধু একটি ইন্টারনেট সংযোগ নয়, এটি একটি প্রতিশ্রুতি। আমরা টাঙ্গাইলবাসীর জন্য নিয়ে এসেছি ওয়ার্ল্ড-ক্লাস ফাইবার অপটিক নেটওয়ার্ক।
+              অরবিটাল নেট শুধু একটি ইন্টারনেট সংযোগ নয়, এটি একটি প্রতিশ্রুতি। আমরা টাঙ্গাইলবাসীর জন্য নিয়ে এসেছি ওয়ার্ল্ড-ক্লাস ফাইবার অপটিক নেটওয়ার্ক।
             </p>
           </motion.div>
         </div>
@@ -69,7 +69,7 @@ export default function AboutPage() {
             >
               <h2 className="text-3xl md:text-4xl font-black text-white mb-6">আমাদের পথচলা</h2>
               <p className="text-zinc-400 text-lg leading-relaxed mb-6">
-                কয়েক বছর আগে যখন টাঙ্গাইলের মানুষ ধীরগতির ইন্টারনেট এবং বারবার লাইন কেটে যাওয়ার সমস্যায় ভুগছিল, তখন আমরা সিদ্ধান্ত নিই একটি সত্যিকার প্রিমিয়াম নেটওয়ার্ক গড়ে তোলার। সেই লক্ষ্য থেকেই জন্ম নেয় <strong className="text-white">Orbital Net</strong>।
+                কয়েক বছর আগে যখন টাঙ্গাইলের মানুষ ধীরগতির ইন্টারনেট এবং বারবার লাইন কেটে যাওয়ার সমস্যায় ভুগছিল, তখন আমরা সিদ্ধান্ত নিই একটি সত্যিকার প্রিমিয়াম নেটওয়ার্ক গড়ে তোলার। সেই লক্ষ্য থেকেই জন্ম নেয় <strong className="text-white">Orbital Net</strong>।
               </p>
               <p className="text-zinc-400 text-lg leading-relaxed mb-8">
                 আজ আমরা গর্ব করে বলতে পারি, আমাদের ১০০% পিওর FTTH (Fiber To The Home) কানেকশন গেমার, ফ্রিল্যান্সার এবং কর্পোরেট অফিসগুলোর প্রথম পছন্দ।
@@ -141,7 +141,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">আমাদের মূল আদর্শ</h2>
-            <p className="text-zinc-500 text-lg max-w-2xl mx-auto">আমরা শুধুমাত্র ব্যবসা করি না, আমরা একটি বিশ্বস্ত ডিজিটাল কমিউনিটি গড়ে তুলতে কাজ করি।</p>
+            <p className="text-zinc-500 text-lg max-w-2xl mx-auto">আমরা শুধুমাত্র ব্যবসা করি না, আমরা একটি বিশ্বস্ত ডিজিটাল কমিউনিটি গড়ে তুলতে কাজ করি।</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -163,6 +163,85 @@ export default function AboutPage() {
                 </p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/*  Trade License Section */}
+      <section className="py-24 bg-zinc-900/20 border-t border-zinc-800 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-zinc-950 border border-zinc-800 rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden"
+            >
+              {/* Background Accent */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 blur-[100px] rounded-full pointer-events-none" />
+              
+              <div className="flex flex-col md:flex-row items-center gap-6 mb-10 pb-10 border-b border-zinc-800/80">
+                <div className="w-16 h-16 bg-gradient-to-br from-zinc-800 to-zinc-900 border border-zinc-700 rounded-2xl flex items-center justify-center shadow-inner shrink-0">
+                  <FileText className="w-8 h-8 text-orange-500" />
+                </div>
+                <div className="text-center md:text-left">
+                  <h2 className="text-2xl md:text-3xl font-black text-white mb-2">Business Compliance</h2>
+                  <p className="text-zinc-500 text-sm font-medium">Official Trade License Information</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Info Block 1 */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 mt-1">
+                    <Building2 className="w-4 h-4 text-zinc-400" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Company Name</p>
+                    <p className="text-lg font-bold text-white">Orbital Net</p>
+                    <p className="text-sm text-zinc-400 mt-1">Category: Internet Service Provider</p>
+                  </div>
+                </div>
+
+                {/* Info Block 2 */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 mt-1">
+                    <FileText className="w-4 h-4 text-zinc-400" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Trade License No</p>
+                    <p className="text-lg font-bold text-orange-400 font-mono tracking-wider">15-092-5054</p>
+                    <p className="text-sm text-zinc-400 mt-1">Issued by Tangail Pourashava</p>
+                  </div>
+                </div>
+
+                {/* Info Block 3 */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 mt-1">
+                    <UserCircle className="w-4 h-4 text-zinc-400" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Owner Name</p>
+                    <p className="text-lg font-bold text-white">Md. Maruful Islam Siddique</p>
+                  </div>
+                </div>
+
+                {/* Info Block 4 */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 mt-1">
+                    <MapPin className="w-4 h-4 text-zinc-400" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Registered Address</p>
+                    <p className="text-base font-medium text-white leading-relaxed">
+                      Shamsur Rahman Khan Pouro Super Market, Tangail
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </motion.div>
           </div>
         </div>
       </section>

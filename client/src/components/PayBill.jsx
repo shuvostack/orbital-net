@@ -119,7 +119,7 @@ export default function PayBill() {
           viewport={{ once: true }}
           className="mt-4 z-30"
         >
-          <Link href="#" className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-rose-500 text-white px-10 py-5 rounded-2xl font-black text-xl shadow-[0_15px_30px_rgba(249,115,22,0.25)] hover:shadow-[0_25px_50px_rgba(249,115,22,0.4)] transition-all hover:-translate-y-1.5 active:scale-95">
+          <Link href="/pay-bill" className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-rose-500 text-white px-10 py-5 rounded-2xl font-black text-xl shadow-[0_15px_30px_rgba(249,115,22,0.25)] hover:shadow-[0_25px_50px_rgba(249,115,22,0.4)] transition-all hover:-translate-y-1.5 active:scale-95">
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-rose-500 rounded-2xl blur-lg opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
             
             <Smartphone className="w-5 h-5 text-white z-10" />

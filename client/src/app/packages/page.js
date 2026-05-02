@@ -20,7 +20,7 @@ export default function PackagesPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // 💡 ডাটাবেস থেকে প্যাকেজগুলো আনা হচ্ছে
+  // fetch package from database
   useEffect(() => {
     const fetchPackages = async () => {
       try {
@@ -40,7 +40,6 @@ export default function PackagesPage() {
     fetchPackages();
   }, []);
 
-  // 💡 ডাটাবেসের type অনুযায়ী ফিল্টার করা হচ্ছে
   const homePackages = packages.filter((pkg) => pkg.type === "Broadband");
   const smePackages = packages.filter(
     (pkg) => pkg.type === "Corporate" || pkg.type === "Gaming",
@@ -67,8 +66,8 @@ export default function PackagesPage() {
               </span>
             </h1>
             <p className="text-lg text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed">
-              আপনার বাসা কিংবা অফিসের জন্য বেছে নিন সবচেয়ে মানানসই প্যাকেজ।
-              কোনো লুকায়িত চার্জ নেই, যখন ইচ্ছে আপগ্রেড করুন।
+              আপনার বাসা কিংবা অফিসের জন্য বেছে নিন সবচেয়ে মানানসই প্যাকেজ। 
+              কোনো লুকায়িত চার্জ নেই, যখন ইচ্ছে আপগ্রেড করুন। নতুন কানেকশন সেটআপের সময়সীমা ২৪-৪৮ ঘণ্টা (সর্বোচ্চ ৩ দিন)।
             </p>
           </motion.div>
         </div>

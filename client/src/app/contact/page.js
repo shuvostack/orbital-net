@@ -87,7 +87,7 @@ export default function ContactPage() {
     {
       icon: <MapPin className="w-6 h-6 text-emerald-500" />,
       title: "অফিসের ঠিকানা",
-      details: "আশেকপুর, টাঙ্গাইল সদর",
+      details: "Shamsur Rahman Khan Pouro Super Market, Tangail",
       subText: "টাঙ্গাইল, বাংলাদেশ",
     },
   ];
