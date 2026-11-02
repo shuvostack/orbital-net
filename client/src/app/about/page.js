@@ -211,7 +211,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Trade License No</p>
-                    <p className="text-lg font-bold text-orange-400 font-mono tracking-wider">15-092-5054</p>
+                    <p className="text-lg font-bold text-orange-400 font-mono tracking-wider">15-036-5054</p>
                     <p className="text-sm text-zinc-400 mt-1">Issued by Tangail Pourashava</p>
                   </div>
                 </div>
@@ -235,7 +235,7 @@ export default function AboutPage() {
                   <div>
                     <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Registered Address</p>
                     <p className="text-base font-medium text-white leading-relaxed">
-                      Shamsur Rahman Khan Pouro Super Market, Tangail
+                      Ashkpur ummukto Eye Hospital Market, Ashekpur, Tangail 
                     </p>
                   </div>
                 </div>
